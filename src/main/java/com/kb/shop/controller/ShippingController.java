@@ -1,9 +1,31 @@
 package com.kb.shop.controller;
 
+import com.kb.shop.domain.ShippingInfo;
+import com.kb.shop.service.ShippingService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/shipping")
 public class ShippingController {
 
-    // 배송 정보를 생성하는 POST 호출을 생성합니다. (path : /shipping)
-    // 배송 Status를 변경하는 PUT 호출을 생성합니다. (path : /shipping)
-    // 배송 정보를 확인하는 GET 호출을 생성합니다.  (path : /shipping)
+    @Autowired
+    private ShippingService shippingService;
 
+    @PostMapping("/add")
+    public ShippingInfo addShippingInfo(@RequestBody ShippingInfo shippingInfo) {
+        return shippingService.saveShippingInfo(shippingInfo);
+    }
+
+    @GetMapping("/all")
+    public List<ShippingInfo> getAllShippingInfo() {
+        return shippingService.getAllShippingInfo();
+    }
+
+    @GetMapping("/{id}")
+    public ShippingInfo getShippingInfoById(@PathVariable Long id) {
+        return shippingService.getShippingInfoById(id);
+    }
 }

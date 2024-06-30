@@ -1,1 +1,11 @@
-test
+1.ShippingInfo.java
+위치: src/main/java/com/kb/shop/entity/
+
+2.ShippingController.java
+위치: src/main/java/com/kb/shop/controller/
+
+3.ShippingService.java
+위치: src/main/java/com/kb/shop/service/
+
+4.ShippingRepository.java
+위치: src/main/java/com/kb/shop/repository/
